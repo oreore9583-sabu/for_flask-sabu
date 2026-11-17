@@ -1,3 +1,7 @@
-[dependencies]
+[package]
+name = "my_project"
+version = "0.1.0"
+edition = "2021"
 
+[dependencies]
 rust_decimal = { version = "1.36", features = ["macros"] }
