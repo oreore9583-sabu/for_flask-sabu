@@ -12,7 +12,7 @@ import re
 from flask import g
 from flask import jsonify
 import logging
-
+import my_calc
 # /auto へのリクエストログだけを除外するフィルター作成
 class NoAutoLogFilter(logging.Filter):
     def filter(self, record):
