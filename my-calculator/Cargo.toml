@@ -1,7 +1,11 @@
 [package]
-name = "my_project"
+name = "my_calc"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "my_calc"
+crate-type = ["cdylib"]
+
 [dependencies]
-rust_decimal = { version = "1.36", features = ["macros"] }
+pyo3 = { version = "0.24", features = ["extension-module"] }
