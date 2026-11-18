@@ -197,7 +197,7 @@ def index():
             
         
         
-try:
+    try:
         if siki and check == "":
             if mode == "exact":
                 siki = re.split(r"(\*\*|\*|\+|-|/|\(|\)|【|】)", siki)
