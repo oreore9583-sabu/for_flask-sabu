@@ -162,6 +162,7 @@ def index():
     siki_for_else=siki
     check="" #一応残す
     result=None
+    mode = request.args.get("mode", "exact")
     
     if siki:
         Error_check=["+/" in siki,"+*" in siki,"*/"in siki,"-*" in siki,"-/" in siki,"/*" in siki,"/+" in siki,"*+" in siki]
