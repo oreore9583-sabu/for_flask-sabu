@@ -43,10 +43,12 @@ make_button();
 async function calc_func(e){
   e.preventDefault();
   let siki=document.getElementById("siki").value;
-  const opt1 = document.getElementById('opt1');
-  if (opt1.checked){
-  const response=await fetch("/?siki="+ encodeURIComponent(siki) + "&ajax=1")}
-  else{const response=await fetch("/?siki="+ encodeURIComponent(siki) + "&ajax=1")}
+  const opt1 = document.getElementById('data');
+  let response;
+  if (opt1.value=="fast"){
+    
+  response=await fetch("/?siki="+ encodeURIComponent(siki) + "&ajax=1"+"&mode=fast")}
+  else{response=await fetch("/?siki="+ encodeURIComponent(siki) + "&ajax=1"+"&mode=exact")}
   const data = await response.json();
   
   siki=data.siki;
