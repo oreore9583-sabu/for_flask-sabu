@@ -197,61 +197,62 @@ def index():
             
         
         
-    try:
-        if siki and check=="":
-                if mode=="exact":
-
-                    siki = re.split(r"(\*\*|\*|\+|-|/|\(|\)|【|】)", siki)
-                    q = 1
-                    while q == 1:
-                        if "" in siki:
-                            siki.pop(siki.index(""))
-                        else:
-                            q = 0
-                    if "(" in siki and ")" in siki:
-                        left = siki.index("(")
-                        right = siki.index(")")
-                        a(siki)
-            
-                    betu = []
-                    kakuri = []
+try:
+        if siki and check == "":
+            if mode == "exact":
+                siki = re.split(r"(\*\*|\*|\+|-|/|\(|\)|【|】)", siki)
+                q = 1
+                while q == 1:
+                    if "" in siki:
+                        siki.pop(siki.index(""))
+                    else:
+                        q = 0
+                if "(" in siki and ")" in siki:
+                    left = siki.index("(")
+                    right = siki.index(")")
                     a(siki)
-                    caco(siki, kakuri)
-                    betu = calc(betu)
-                    if "(" in siki and ")" in siki:
-                        siki[left : right + 1] = betu
-            
-                    siki = calc(siki)
-            
-                    result = siki[0]
-                elif mode=="fast":
-                    result = my_calc.calc(siki)
 
+                betu = []
+                kakuri = []
+                a(siki)
+                caco(siki, kakuri)
+                betu = calc(betu)
+                if "(" in siki and ")" in siki:
+                    siki[left : right + 1] = betu
 
-  # テスト用の受取先URL       
-            to_json=(f"{siki_for_else}={result}")
+                siki = calc(siki)
+
+                result = siki[0]
+
+            elif mode == "fast":
+                result = my_calc.calc(siki)
+
+            # テスト用の受取先URL
+            to_json = (f"{siki_for_else}={result}")
 
             # 1. 送りたいデータ（辞書型）
-            data = {"id":to_json}
+            data = {"id": to_json}
 
             # 2. データを URLエンコード して、さらに バイナリ（bytes）に変換
             # ※urlopenはdata引数にbytesが渡されると自動的にPOSTになります
-            encoded_data = json.dumps(data).encode("utf-8") 
+            encoded_data = json.dumps(data).encode("utf-8")
 
             # 3. リクエストの作成と送信
-            req = urllib.request.Request(url, data=encoded_data,headers={"Content-Type": "application/json","User-Agent": "my-python-a/1.0"})
-
+            req = urllib.request.Request(
+                url,
+                data=encoded_data,
+                headers={"Content-Type": "application/json", "User-Agent": "my-python-a/1.0"}
+            )
 
             try:
                 with urllib.request.urlopen(req) as response:
                     html = response.read().decode("utf-8")
 
-
             except urllib.error.HTTPError as e:
                 print("ステータス:", e.code)
                 print("レスポンス:", e.read().decode("utf-8"))
-            
-    except DivisionByZero:
+
+    except (DivisionByZero, ZeroDivisionError):
         fraud_input="0で割ることはできません"
         check="DivisionByZero"
     except InvalidOperation as e:
