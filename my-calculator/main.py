@@ -199,30 +199,33 @@ def index():
         
     try:
         if siki and check=="":
+                if mode=="exact":
 
-            siki = re.split(r"(\*\*|\*|\+|-|/|\(|\)|【|】)", siki)
-            q = 1
-            while q == 1:
-                if "" in siki:
-                    siki.pop(siki.index(""))
-                else:
-                    q = 0
-            if "(" in siki and ")" in siki:
-                left = siki.index("(")
-                right = siki.index(")")
-                a(siki)
-    
-            betu = []
-            kakuri = []
-            a(siki)
-            caco(siki, kakuri)
-            betu = calc(betu)
-            if "(" in siki and ")" in siki:
-                siki[left : right + 1] = betu
-    
-            siki = calc(siki)
-    
-            result = siki[0]
+                    siki = re.split(r"(\*\*|\*|\+|-|/|\(|\)|【|】)", siki)
+                    q = 1
+                    while q == 1:
+                        if "" in siki:
+                            siki.pop(siki.index(""))
+                        else:
+                            q = 0
+                    if "(" in siki and ")" in siki:
+                        left = siki.index("(")
+                        right = siki.index(")")
+                        a(siki)
+            
+                    betu = []
+                    kakuri = []
+                    a(siki)
+                    caco(siki, kakuri)
+                    betu = calc(betu)
+                    if "(" in siki and ")" in siki:
+                        siki[left : right + 1] = betu
+            
+                    siki = calc(siki)
+            
+                    result = siki[0]
+                elif mode=="fast":
+                    result = my_calc.calc(siki)
 
 
   # テスト用の受取先URL       
