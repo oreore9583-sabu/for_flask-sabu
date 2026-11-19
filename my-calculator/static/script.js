@@ -43,7 +43,7 @@ make_button();
 async function calc_func(e){
   e.preventDefault();
   let siki=document.getElementById("siki").value;
-  const opt1 = document.getElementById('mode');
+  const opt1 = document.getElementById('mode-select');
   let response;
   if (opt1.value=="fast"){
     
