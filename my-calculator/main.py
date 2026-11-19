@@ -233,7 +233,7 @@ def index():
                 mode="rust"
             elif mode=="exact":
                 mode="python"
-            to_json = (f"{siki_for_else}={result}+{mode}")
+            to_json = (f"{siki_for_else}={result}|{mode}")
 
             # 1. 送りたいデータ（辞書型）
             data = {"id": to_json}
