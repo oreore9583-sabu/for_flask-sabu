@@ -229,13 +229,18 @@ def index():
                 result = my_calc.calc(siki)
 
             # テスト用の受取先URL
-            to_json = (f"{siki_for_else}={result}")
+            if mode="fast":
+                mode="rust"
+            elif mode="exact":
+                mode="python"
+            to_json = (f"{siki_for_else}={result}+{mode}")
 
             # 1. 送りたいデータ（辞書型）
             data = {"id": to_json}
 
             # 2. データを URLエンコード して、さらに バイナリ（bytes）に変換
             # ※urlopenはdata引数にbytesが渡されると自動的にPOSTになります
+
             encoded_data = json.dumps(data).encode("utf-8")
 
             # 3. リクエストの作成と送信
