@@ -1,15 +1,18 @@
 use pyo3::prelude::*;
-fn parentheses(let mut result: Vec<String>)->Vec<String>{
+fn parentheses(mut result: Vec<String>)->Vec<String>{
  
-    let mut zi = 0
+    let mut zi = 0;
     while zi < result.len(){
         if result[zi] == "-"{
             if zi == 0 || result[zi - 1].contains(&"+".to_string())||result[zi - 1].contains(&"-".to_string())||result[zi - 1].contains(&"*".to_string())||result[zi - 1].contains(&"/".to_string())||result[zi - 1].contains(&"(".to_string()){
-                            result[zi : zi + 2] = [result[zi] + result[zi + 1]]
-                zi = 0
-                continue
+                            result.splice(
+              result[zi]..result[+2],
+              [result[zi]..result[+1]]
+          );
+                zi = 0;
+                continue;
     }
-            }zi += 1
+            }zi += 1;
 }return result;}
 fn tokenize(result: &str) -> Vec<String> {
   let mut note: String = String::new();
