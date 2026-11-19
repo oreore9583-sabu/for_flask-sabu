@@ -229,9 +229,9 @@ def index():
                 result = my_calc.calc(siki)
 
             # テスト用の受取先URL
-            if mode="fast":
+            if mode=="fast":
                 mode="rust"
-            elif mode="exact":
+            elif mode=="exact":
                 mode="python"
             to_json = (f"{siki_for_else}={result}+{mode}")
 
