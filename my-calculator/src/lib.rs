@@ -5,9 +5,10 @@ fn parentheses(mut result: Vec<String>)->Vec<String>{
     while zi < result.len(){
         if result[zi] == "-"{
             if zi == 0 || result[zi - 1].contains(&"+".to_string())||result[zi - 1].contains(&"-".to_string())||result[zi - 1].contains(&"*".to_string())||result[zi - 1].contains(&"/".to_string())||result[zi - 1].contains(&"(".to_string()){
-                            result.splice(
+             let combined = format!("{}{}", result[zi], result[zi + 1]);               
+             result.splice(
               zi..zi+2,
-              zi..zi+1
+             [combined]
           );
                 zi = 0;
                 continue;
