@@ -255,7 +255,7 @@ fn calc(expr: String) -> PyResult<String> {
     let result: String = expr.chars().filter(|c| !c.is_whitespace()).collect();
  
     let mut af_result = tokenize(&result);
-    af_result=parentheses(af_result)
+    af_result=parentheses(af_result);
     
     let anser=caco(af_result);
     Ok(anser[0].clone())
