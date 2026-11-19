@@ -6,8 +6,8 @@ fn parentheses(mut result: Vec<String>)->Vec<String>{
         if result[zi] == "-"{
             if zi == 0 || result[zi - 1].contains(&"+".to_string())||result[zi - 1].contains(&"-".to_string())||result[zi - 1].contains(&"*".to_string())||result[zi - 1].contains(&"/".to_string())||result[zi - 1].contains(&"(".to_string()){
                             result.splice(
-              result[zi]..result[+2],
-              [result[zi]..result[+1]]
+              result[zi]..result[2],
+              [result[zi]..result[1]]
           );
                 zi = 0;
                 continue;
