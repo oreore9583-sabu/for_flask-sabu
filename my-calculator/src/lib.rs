@@ -1,4 +1,16 @@
 use pyo3::prelude::*;
+fn parentheses(result: Vec<String>)->Vec<String>{
+ 
+    let mut zi = 0
+    while zi < len(data){
+        if data[zi] == "-"{
+            if zi == 0 || data[zi - 1].contains(&"+".to_string())||data[zi - 1].contains(&"-".to_string())||data[zi - 1].contains(&"*".to_string())||data[zi - 1].contains(&"/".to_string())||data[zi - 1].contains(&"(".to_string()){
+                            data[zi : zi + 2] = [data[zi] + data[zi + 1]]
+                zi = 0
+                continue
+        
+            }zi += 1
+}}
 fn tokenize(result: &str) -> Vec<String> {
   let mut note: String = String::new();
   let mut af_result: Vec<String> = Vec::new();
