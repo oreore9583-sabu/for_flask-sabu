@@ -52,7 +52,7 @@ async function calc_func(e){
   const data = await response.json();
   
   siki=data.siki;
-  result=data.result
+  const result=data.result
   document.getElementById("result").textContent=result;
   document.getElementById("dis_siki").textContent=siki;
   document.getElementById("clear").click();
