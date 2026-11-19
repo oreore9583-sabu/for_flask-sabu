@@ -8,7 +8,7 @@ fn parentheses(result: Vec<String>)->Vec<String>{
                             data[zi : zi + 2] = [data[zi] + data[zi + 1]]
                 zi = 0
                 continue
-        
+    }
             }zi += 1
 }}
 fn tokenize(result: &str) -> Vec<String> {
