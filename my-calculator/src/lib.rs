@@ -253,8 +253,10 @@ fn calc(expr: String) -> PyResult<String> {
 
     // 修正後（値が入っていない場合にパニックさせる）
     let result: String = expr.chars().filter(|c| !c.is_whitespace()).collect();
-
-    let af_result = tokenize(&result);
+ 
+    let mut af_result = tokenize(&result);
+    af_result=parentheses(af_result)
+    
     let anser=caco(af_result);
     Ok(anser[0].clone())
 }
