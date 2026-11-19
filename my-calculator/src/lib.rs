@@ -3,9 +3,9 @@ fn parentheses(result: Vec<String>)->Vec<String>{
  
     let mut zi = 0
     while zi < len(data){
-        if data[zi] == "-"{
-            if zi == 0 || data[zi - 1].contains(&"+".to_string())||data[zi - 1].contains(&"-".to_string())||data[zi - 1].contains(&"*".to_string())||data[zi - 1].contains(&"/".to_string())||data[zi - 1].contains(&"(".to_string()){
-                            data[zi : zi + 2] = [data[zi] + data[zi + 1]]
+        if result[zi] == "-"{
+            if zi == 0 || result[zi - 1].contains(&"+".to_string())||result[zi - 1].contains(&"-".to_string())||result[zi - 1].contains(&"*".to_string())||result[zi - 1].contains(&"/".to_string())||result[zi - 1].contains(&"(".to_string()){
+                            result[zi : zi + 2] = [result[zi] + result[zi + 1]]
                 zi = 0
                 continue
     }
