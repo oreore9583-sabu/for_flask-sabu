@@ -1,5 +1,5 @@
 use pyo3::prelude::*;
-fn parentheses(result: Vec<String>)->Vec<String>{
+fn parentheses(let mut result: Vec<String>)->Vec<String>{
  
     let mut zi = 0
     while zi < len(data){
@@ -10,7 +10,7 @@ fn parentheses(result: Vec<String>)->Vec<String>{
                 continue
     }
             }zi += 1
-}}
+}return result;}
 fn tokenize(result: &str) -> Vec<String> {
   let mut note: String = String::new();
   let mut af_result: Vec<String> = Vec::new();
